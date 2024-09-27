@@ -11,7 +11,7 @@
   
 ## Always a Good Reading/Watching
 1. [Arduino Tutorial for Beginners 2023](https://youtube.com/playlist?list=PLwWF-ICTWmB7-b9bsE3UcQzz-7ipI5tbR&si=vuufTEWZWUoGdkGX)
-2. [https://youtube.com/playlist?list=PLv5bCJpKDWIazJBFmeTLXOJ6CwLAxvVGY&si=NNDlufr43CF4f1Df](https://youtube.com/playlist?list=PLv5bCJpKDWIazJBFmeTLXOJ6CwLAxvVGY&si=NNDlufr43CF4f1Df).
+2. [Learning to code C/C++ with Arduino](https://youtube.com/playlist?list=PLv5bCJpKDWIazJBFmeTLXOJ6CwLAxvVGY&si=NNDlufr43CF4f1Df).
 3. [C++ Primer 5th Edition](https://julac-hkust.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991012883470003412&context=L&vid=852JULAC_HKUST:HKUST&lang=en&search_scope=HKUST_catalog_primo&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,c%2B%2B%20primer%205th%20edition), and [its source code](https://github.com/Mooophy/Cpp-Primer).
 
 ## Main Areas of C++
