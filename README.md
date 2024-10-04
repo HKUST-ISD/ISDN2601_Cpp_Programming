@@ -8,21 +8,21 @@
    * Functional
    * Procedural
    * Generic
-  
+   
 ## Always a Good Reading/Watching
-1. [Arduino Tutorial for Beginners 2023](https://youtube.com/playlist?list=PLwWF-ICTWmB7-b9bsE3UcQzz-7ipI5tbR&si=vuufTEWZWUoGdkGX)
-2. [Learning to code C/C++ with Arduino](https://youtube.com/playlist?list=PLv5bCJpKDWIazJBFmeTLXOJ6CwLAxvVGY&si=NNDlufr43CF4f1Df).
-3. [C++ Primer 5th Edition](https://julac-hkust.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991012883470003412&context=L&vid=852JULAC_HKUST:HKUST&lang=en&search_scope=HKUST_catalog_primo&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,c%2B%2B%20primer%205th%20edition), and [its source code](https://github.com/Mooophy/Cpp-Primer).
+1. Youtube video list [Arduino Tutorial for Beginners 2023](https://youtube.com/playlist?list=PLwWF-ICTWmB7-b9bsE3UcQzz-7ipI5tbR&si=vuufTEWZWUoGdkGX)
+2. Youtube video list [Learning to code C/C++ with Arduino](https://youtube.com/playlist?list=PLv5bCJpKDWIazJBFmeTLXOJ6CwLAxvVGY&si=NNDlufr43CF4f1Df).
+3. Book [C++ Primer 5th Edition](https://julac-hkust.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991012883470003412&context=L&vid=852JULAC_HKUST:HKUST&lang=en&search_scope=HKUST_catalog_primo&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,c%2B%2B%20primer%205th%20edition), and [its source code](https://github.com/Mooophy/Cpp-Primer).
 
 ## Main Areas of C++
 - [x] C Language Syntax
 - [x] Preprocessor
 - [x] I/O
-- [ ] Classes and Objects
+- [x] Classes and Structs
 - [x] Array and Set
 - [x] Map/Dictionary
 - [x] C++ Templates
-- [ ] STL & Standard Libraries
+- [x] STL & Standard Libraries
 
 
 ## Variables
@@ -401,3 +401,200 @@ int main() {
     return 0;
 }
 ```
+
+## STL & Standard Libraries
+1. Sample Code:
+```
+// Arduino STL and Standard Libraries Tutorial
+
+// 1. Including Arduino header (for Arduino IDE on Linux)
+#include <Arduino.h>
+
+// 2. Standard Template Library (STL) headers
+#include <vector>
+#include <algorithm>
+#include <string>
+
+// 3. Other standard library headers
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+// 4. External libraries
+// For JSON: ArduinoJson library (install via Arduino Library Manager)
+#include <ArduinoJson.h>
+
+// For CSV: csv.h (you may need to manually add this to your Arduino libraries folder)
+#include <csv.h>
+
+void setup() {
+  Serial.begin(9600);
+
+  // Vector example
+  std::vector<int> numbers = {5, 2, 8, 1, 9};
+  std::sort(numbers.begin(), numbers.end());
+  
+  Serial.println("Sorted numbers:");
+  for (int num : numbers) {
+    Serial.print(num);
+    Serial.print(" ");
+  }
+  Serial.println();
+
+  // String example
+  std::string message = "Hello, STL!";
+  Serial.println(message.c_str());
+
+  // Math function example
+  double result = std::sqrt(25.0);
+  Serial.print("Square root of 25: ");
+  Serial.println(result);
+
+  // JSON example
+  StaticJsonDocument<200> doc;
+  doc["sensor"] = "temperature";
+  doc["value"] = 25.5;
+  
+  String jsonString;
+  serializeJson(doc, jsonString);
+  Serial.println("JSON: " + jsonString);
+
+  // CSV example (basic usage, not writing to file)
+  csv::CSVWriter writer(",");
+  writer << "Name" << "Age" << "City";
+  writer << "John" << 30 << "New York";
+  writer << "Alice" << 25 << "London";
+  
+  Serial.println("CSV data:");
+  Serial.println(writer.toString().c_str());
+}
+
+void loop() {
+  // Empty loop
+}
+```
+
+2. Working steps on Linux:
+   * Install the Arduino IDE on Linux.
+   * Install the ArduinoJson library via the Arduino Library Manager, e.g. [Youtube tutorial](https://youtu.be/WuqEAUirXw0?si=P-44ymM_JusuVXRB).
+   * For libcsv, you may need to manually add it to your Arduino libraries folder. Installation guide: [libcsv](https://github.com/rgamble/libcsv/tree/master)
+   * Copy and paste this code into a new Arduino sketch.
+   * Compile and upload to your Arduino board.
+
+## C++ Class
+1. Introduction: classes are the foundation of object-oriented programming in C++. They allow you to create custom data types that encapsulate data and functions.
+
+2. Basic Class Structure:
+```
+class ClassName {
+private:
+    // Private members
+public:
+    // Public members
+};
+```
+
+3. Class Members
+   * Data members (variables)
+   * Member functions (methods)
+```
+class Rectangle {
+private:
+    double length;
+    double width;
+public:
+    void setDimensions(double l, double w) {
+        length = l;
+        width = w;
+    }
+    double getArea() {
+        return length * width;
+    }
+};
+```
+
+4. Constructors and Destructors: constructors initialize objects, while destructors clean up resources when an object is destroyed.
+```
+class Rectangle {
+private:
+    double length;
+    double width;
+public:
+    // Constructor
+    Rectangle(double l, double w) : length(l), width(w) {}
+    
+    // Destructor
+    ~Rectangle() {
+        // Cleanup code (if needed)
+    }
+    
+    double getArea() {
+        return length * width;
+    }
+};
+```
+
+5. Access Specifiers
+   * Private: accessible only within the class
+   * Public: accessible from anywhere
+   * Protected: accessible within the class and its derived classes
+
+6. Inheritance: inheritance allows a class to inherit properties and methods from another class.
+```
+class Shape {
+protected:
+    string color;
+public:
+    void setColor(string c) {
+        color = c;
+    }
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    double getArea() {
+        return 3.14159 * radius * radius;
+    }
+};
+```
+
+7. Virtual Functions: virtual functions allow a base class to declare a function that can be overridden in derived classes.
+```
+class Animal {
+public:
+    virtual void makeSound() {
+        cout << "The animal makes a sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        cout << "The dog barks" << endl;
+    }
+};
+```
+
+8. Pure Virtual Functions and Abstract Classes: a pure virtual function is declared by assigning 0 to it. A class with at least one pure virtual function becomes an abstract class.
+```
+class Shape {
+public:
+    virtual double getArea() = 0; // Pure virtual function
+};
+
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+    double getArea() override {
+        return length * width;
+    }
+};
+```
+
+
