@@ -1,7 +1,10 @@
-#include "Arduino.h"
- 
-void setup(){
+#include <string.h>
 
+void setup(){
+  Serial.begin(9600);  // Initialize Serial communication at 9600 baud rate
+  while (!Serial) {
+    ; // Wait for Serial port to connect. Needed for native USB port only
+  }
 }
 
 struct Person {
