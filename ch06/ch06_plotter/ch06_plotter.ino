@@ -9,38 +9,8 @@ void setup() {
     ; // Wait for Serial port to connect. Needed for native USB port only
   }
 }
-
-struct Person {
-  char name[50];
-  int age;
-  float height;
-};
  
 void loop() {
-  // Basic data types
-  char character = 'A';
-  int integer = 42;
-  long longInteger = 1234567890L;
-  float floatNumber = 3.14159;
-  double doubleNumber = 2.718281828459045;
-  bool boolean = true;
-  
-  // String
-  String message = "Hello, World!";
-  Serial.println("1234567");
-  
-  // Array
-  int numbers[] = {1, 2, 3, 4, 5};
-  
-  // Custom structure
-  Person person = {"John Doe", 30, 1.75};
-  
-  // Printing different types of values
-  Serial.println("\n--- Printing Different Types ---");
-  Serial.print("Character: ");
-  Serial.println(character);
-  
-  // ... (rest of the printing code remains the same)
 
   // Add data for Serial Plotter
   Serial.println("\n--- Data for Serial Plotter ---");
